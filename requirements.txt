@@ -1,0 +1,18 @@
+Flask==1.0.*
+
+# Application server for both development and production.
+gunicorn==19.8.*
+
+# Testing and static analysis.
+pytest==3.5.*
+pytest-cov==2.5.*
+flake8==3.5.*
+
+# Extensions
+flask-less==0.4
+flask-debugtoolbar==0.10.0
+Flask-Limiter==1.0.*
+
+pandas==0.23.4
+lxml==4.2.5
+xlrd==1.1.0

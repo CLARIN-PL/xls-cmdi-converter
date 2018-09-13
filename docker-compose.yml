@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  website:
+    build: .
+    command: >
+      gunicorn -c "python:config.gunicorn" --reload "cmdi.app:create_app()"
+    env_file:
+      - '.env'
+    volumes:
+      - '.:/app'
+    ports:
+      - '5000:5000'

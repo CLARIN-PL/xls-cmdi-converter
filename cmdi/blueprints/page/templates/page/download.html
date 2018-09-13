@@ -1,0 +1,28 @@
+{% extends 'layouts/app.html' %}
+
+{% block title %}Download{% endblock %}
+{% block meta_description %}Download converted files.{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-th-list"></i> Processed file list
+                </div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        {% for f in files %}
+                            <div class="list-group-item"> {{ f['name'] }}
+                                <span class="pull-right"><a
+                                        href="{{ url_for('page.download', filename=f['fullname']) }}" target="blank"><i
+                                        class="fa fa-download"></i></a>
+                                </span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,7 @@
+DEBUG = False
+
+SERVER_NAME = 'localhost:8080'
+
+REMEMBER_COOKIE_DURATION = timedelta(minutes=30)
+SECRET_KEY = '!$flhgsdf32asdsad234234ASDFOET!$!'
+

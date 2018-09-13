@@ -1,0 +1,32 @@
+{% extends 'layouts/app.html' %}
+
+{% block title %}Upload{% endblock %}
+{% block meta_description %}Upload xls file to generate cmdi meta data{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-th-list"></i> Upload file to convert
+                </div>
+                <div class="panel-body">
+                    <form action="{{ url_for('page.upload') }}" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Fullname</label>
+                            <input type="text" name="creator" class="form-control" id="creator"
+                                   placeholder="Creator fullname" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Metadata excel file</label>
+                            <input type="file" id="inputFile" name="file"
+                                   accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" required>
+                            <p class="help-block">Choose xlsx files only</p>
+                        </div>
+                        <button type="submit" class="btn btn-primary"> Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
