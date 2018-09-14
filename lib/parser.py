@@ -12,10 +12,9 @@ def parse(creator, filename):
     """
     Command to load excel file and transform it to series of xml files
     :param creator: fullname of creator
-    :param out: output directory
-    :param path_to_xls_file: path to excel file
-    :return:
+    :param filename: input xlsx file name
     """
+
     # Open excel file and skips first row
     xls = pd.read_excel('files/'+filename, sheet_name=0, index_col=0, skiprows=1)
 
@@ -38,6 +37,10 @@ def parse(creator, filename):
 
 
 def remove_file(filename):
+    """
+    Removes file by name
+    :param filename: string
+    """
     if os.path.exists(filename):
         os.remove(filename)
     else:

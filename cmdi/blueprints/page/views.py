@@ -16,14 +16,18 @@ def home():
 
 @page.route('/upload', methods=['GET', 'POST'])
 def upload():
+    """
+    Handles file uploading.
+    :return: Template
+    """
 
     if request.method == 'POST':
         creator = request.form['creator']
 
         f = request.files['file']
 
-        format = "%Y-%m-%d %H:%M:%S"
-        now = datetime.datetime.utcnow().strftime(format)
+        _format = "%Y-%m-%d %H:%M:%S"
+        now = datetime.datetime.utcnow().strftime(_format)
 
         filename = secure_filename(now + '_' + str(creator) + '_' + f.filename)
 
@@ -36,6 +40,11 @@ def upload():
 
 @page.route('/downloads')
 def downloads():
+    """
+    Generates view with list of all processed files.
+    :return: Template
+    """
+
     files = list()
     for root, dirs, filenames in os.walk('files/'):
         for f in filenames:
@@ -46,4 +55,9 @@ def downloads():
 
 @page.route('/download/<path:filename>', methods=['GET', 'POST'])
 def download(filename):
+    """
+    Handles file downloading by filename
+    :param filename: string
+    :return: file
+    """
     return send_file('/app/files/'+filename, as_attachment=True)

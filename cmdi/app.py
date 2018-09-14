@@ -6,7 +6,7 @@ from flask_less import lessc
 from cmdi.blueprints.page import page
 
 from cmdi.extensions import (
-    debug_toolbar, limiter)
+    limiter)
 
 
 def create_app(settings_override=None):
@@ -41,7 +41,6 @@ def extensions(app):
     :param app: Flask application instance
     :return: None
     """
-    ##debug_toolbar.init_app(app)
     limiter.init_app(app)
     return None
 
